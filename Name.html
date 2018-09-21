@@ -1,0 +1,44 @@
+<html>
+   
+   <head>
+      <title>AngularJS Directives</title>
+	  <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+   
+   <body>
+      <h1>Sample Application</h1>
+      
+      <div ng-app = "mainapp" ng-controller="display"> 
+         <p>Enter First Name: <input type = "text" ng-model = "name.firstname"></p>
+		 <p>Enter LastName :<input type ="text" ng-model="name.lastname"></p>
+		 <br/>
+         Hello  {{name.fullname()}} 
+      </div>
+      
+      
+	  <script> 
+	  
+	  var mainapp = angular.module("mainapp",[]);
+	  
+	  mainapp.controller("display",function ($scope)
+	  {
+	  
+		$scope.name={
+			firstname : "ad",
+			lastname : "asdasd",
+			fullname : function()
+			{
+				var obj;
+				obj = $scope.name;
+				return obj.firstname+" "+obj.lastname;
+			}	
+		};
+	  });
+	  
+	  
+	  </script>
+	  
+	  
+      
+   </body>
+</html>

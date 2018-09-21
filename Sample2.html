@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title> Angular</title>
+			<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	</head>
+	
+	<body>
+		<div ng-app="essApp" ng-controller="displaycontroller">
+		
+		<p>Enter Firstname : <input type="text" ng-model="name.firstname"></p>
+		<p>Enter Lastname : <input type="text" ng-model="name.lastname"></p>
+		<br/>
+		Your Fullname is : {{name.firstname | uppercase}}
+		
+		</div>
+	
+	<script>
+		var essApp =angular.module("essApp",[]);
+		
+		essApp.controller('displaycontroller',function($scope){
+		
+		$scope.name = {
+		
+		firstname:"",
+		lastname:"",
+		fullname:function() {
+			var obj;
+			obj = $scope.name;
+			return obj.firstname +" "+ obj.lastname;
+		
+		}
+		};
+		
+		});
+		
+	</script>
+	</body>
+	
+</html>
